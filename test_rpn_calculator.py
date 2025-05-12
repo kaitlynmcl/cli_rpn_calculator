@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 from rpn_calculator import RPNCalculator, InvalidCommandError
 
 
@@ -95,6 +96,22 @@ class TestRPNCalculator(unittest.TestCase):
         Should print "Stack is empty."
         """
         self.calculator.get_result()
+
+    def test_stack_command(self):
+        """
+        Test the 'stack' command to ensure it returns the correct stack state.
+        """
+        self.calculator.execute("3")
+        self.calculator.execute("4")
+        self.assertEqual(self.calculator.get_stack(), [3.0, 4.0])
+
+    def test_insufficient_operands(self):
+        """
+        Test if trying to perform an operation with insufficient operands raises an error.
+        """
+        self.calculator.execute("5")
+        with self.assertRaises(InvalidCommandError):
+            self.calculator.execute("+")
 
 
 if __name__ == "__main__":
