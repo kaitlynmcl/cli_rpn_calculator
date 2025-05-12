@@ -59,16 +59,23 @@ class RPNCalculator:
                 raise InvalidCommandError(f"Invalid input: '{command}'")
 
     def get_result(self):
-        if len(self.stack) == 0:
-            print("Stack is empty.")
-        else:
-            print(f"Result: {self.stack[-1]}")
+        """
+        Return the top of the stack or None if empty.
+        """
+        return self.stack[-1] if self.stack else None
+
+    def get_stack(self):
+        """
+        Return a copy of the current stack for inspection.
+        """
+        return list(self.stack)
 
 
 def main():
     calculator = RPNCalculator()
     print("Welcome to the CLI RPN Calculator!")
-    print("Enter 'q' to quit or use any of the four basic operators (+, -, *, /).")
+    print("Enter RPN expressions using numbers and operators (+, -, *, /).")
+    print("Enter 'q' to quit, 'stack' to view the stack, or 'help' for instructions.")
 
     while True:
         try:
@@ -78,6 +85,17 @@ def main():
                 print("Exiting calculator.")
                 break
 
+            if user_input.lower() == "help":
+                print(
+                    "Usage: Enter numbers and operators in RPN format (e.g., '3 4 +')."
+                )
+                print("Type 'q' to quit. Type 'stack' to view current stack.")
+                continue
+
+            if user_input.lower() == "stack":
+                print("Stack:", calculator.get_stack())
+                continue
+
             # Split the input into individual tokens and process each token
             commands = user_input.split()
             for command in commands:
@@ -86,10 +104,11 @@ def main():
                 except InvalidCommandError as e:
                     print(e)
 
-            for command in commands:
-                calculator.execute(command)
-
-            calculator.get_result()
+            result = calculator.get_result()
+            if result is None:
+                print("Stack is empty.")
+            else:
+                print(f"Result: {result}")
 
         except (EOFError, KeyboardInterrupt):
             # Gracefully handle EOF (Ctrl+D) and KeyboardInterrupt (Ctrl+C)
