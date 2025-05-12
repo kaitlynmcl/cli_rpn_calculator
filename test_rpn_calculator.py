@@ -1,5 +1,4 @@
 import unittest
-from unittest.mock import patch
 from rpn_calculator import RPNCalculator, InvalidCommandError
 
 
@@ -8,7 +7,7 @@ class TestRPNCalculator(unittest.TestCase):
         """
         Create an instance of the calculator before each test.
         """
-        self.calculator = RPNCalculator()
+        self.calculator = RPNCalculator()xw
 
     def test_addition(self):
         """
