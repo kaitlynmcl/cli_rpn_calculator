@@ -57,7 +57,7 @@ The tool is designed for simplicity and functionality, providing a user-friendly
 
 ### Future Enhancements
 
-- **Alternate Interfaces**: We could consider implementing additional interfaces such as WebSocket, file-based input/output, or TCP socket communication. These interfaces would allow for integration with other systems or tools, providing more flexibility in how users interact with the calculator.
+- **Alternate Interfaces**: We could implement additional interfaces such as WebSocket, file-based input/output, or TCP socket communication. These interfaces would allow for integration with other systems or tools, providing more flexibility in how users interact with the calculator.
   - **WebSocket**: Implementing a WebSocket interface would allow the calculator to interact with web-based clients in real time, enabling remote access to the calculator from browsers or other web applications.
   - **File-Based Input/Output**: A file-based interface could allow users to provide input through files (e.g., `.txt` or `.csv`) and retrieve output in a file format. This would make it easier to automate calculations and integrate the calculator into workflows where input and output are stored in files.
   - **TCP Socket Communication**: Supporting TCP socket communication would allow the calculator to be used in networked environments where commands are sent over a network. This could be useful for integrating the calculator into server-side applications, IoT devices, or other distributed systems.
@@ -94,18 +94,18 @@ By addressing these potential improvements, we could further enhance the functio
    ```bash
    git clone git@github.com:kaitlynmcl/cli_rpn_calculator.git
 
-
 2. **Run the Program**:
 
    Based on your version of Python, you can run run the program using the following command:
 
-   <pre> ```bash python3 rpn_calculator.py ``` </pre>
+   ```bash
+   python3 rpn_calculator.py</pre>
 
 
 3. **Run Tests**:
 
    If you'd like to run tests locally, you can run them using the following command:
 
-
-   <pre> ```bash python3 test_rpn_calculator.py ``` </pre>
+   ```bash
+   python3 test_rpn_calculator.py
 
