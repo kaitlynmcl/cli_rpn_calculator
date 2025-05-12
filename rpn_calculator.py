@@ -80,6 +80,11 @@ def main():
 
             # Split the input into individual tokens and process each token
             commands = user_input.split()
+            for command in commands:
+                try:
+                    calculator.execute(command)
+                except InvalidCommandError as e:
+                    print(e)
 
             for command in commands:
                 calculator.execute(command)
