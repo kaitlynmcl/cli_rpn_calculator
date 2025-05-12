@@ -1,3 +1,9 @@
+class InvalidCommandError(Exception):
+    """Custom exception for invalid calculator input."""
+
+    pass
+
+
 class RPNCalculator:
     def __init__(self):
         self.stack = []
@@ -9,38 +15,48 @@ class RPNCalculator:
         }
 
     def add(self):
+        self._require_operands(2)
         b = self.stack.pop()
         a = self.stack.pop()
         self.stack.append(a + b)
 
     def subtract(self):
+        self._require_operands(2)
         b = self.stack.pop()
         a = self.stack.pop()
         self.stack.append(a - b)
 
     def multiply(self):
+        self._require_operands(2)
         b = self.stack.pop()
         a = self.stack.pop()
         self.stack.append(a * b)
 
     def divide(self):
+        self._require_operands(2)
         b = self.stack.pop()
         a = self.stack.pop()
         if b == 0:
             print(f"Error: Cannot divide {a} by {b}. Reverting stack.")
-            self.stack.append(a)  # put 'a' back on stack
-            self.stack.append(b)  # put 'b' back on stack
+            self.stack.append(a)
+            self.stack.append(b)
         else:
             self.stack.append(a / b)
 
+    def _require_operands(self, count):
+        if len(self.stack) < count:
+            raise InvalidCommandError(
+                f"Error: Not enough operands for operation (need {count}, have {len(self.stack)})."
+            )
+
     def execute(self, command):
-        try:
-            if command in self.operators:
-                self.operators[command]()
-            else:
+        if command in self.operators:
+            self.operators[command]()
+        else:
+            try:
                 self.stack.append(float(command))
-        except ValueError:
-            print(f"Error: Invalid command '{command}'")
+            except ValueError:
+                raise InvalidCommandError(f"Invalid input: '{command}'")
 
     def get_result(self):
         if len(self.stack) == 0:

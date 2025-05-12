@@ -1,5 +1,5 @@
 import unittest
-from rpn_calculator import RPNCalculator
+from rpn_calculator import RPNCalculator, InvalidCommandError
 
 
 class TestRPNCalculator(unittest.TestCase):
@@ -59,20 +59,23 @@ class TestRPNCalculator(unittest.TestCase):
     def test_invalid_operator(self):
         """
         Test the case of an invalid operator.
-        No operation is performed, and the stack is kept in tact.
+        Should raise InvalidCommandError, and stack should remain unchanged.
         """
         self.calculator.execute("5")
         self.calculator.execute("3")
-        self.calculator.execute("^")  # Invalid operator
+        with self.assertRaises(InvalidCommandError):
+            self.calculator.execute("^")  # Invalid operator
+
         self.assertEqual(self.calculator.stack, [5.0, 3.0])
 
     def test_invalid_number(self):
         """
         Test invalid number input.
-        No operation is performed, and the stack is kept in tact.
+        Should raise InvalidCommandError, and stack should remain unchanged.
         """
         self.calculator.execute("5")
-        self.calculator.execute("abc")  # Invalid number
+        with self.assertRaises(InvalidCommandError):
+            self.calculator.execute("abc")  # Invalid number
         self.assertEqual(self.calculator.stack, [5.0])
 
     def test_multiple_operations(self):
