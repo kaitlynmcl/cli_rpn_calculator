@@ -92,19 +92,20 @@ By addressing these potential improvements, we could further enhance the functio
    First, clone the repository to your local machine. Open your terminal and run the following command:
 
    ```bash
-git clone git@github.com:kaitlynmcl/cli_rpn_calculator.git
+   git clone git@github.com:kaitlynmcl/cli_rpn_calculator.git
 
 2. **Run the Program**:
 
-   `cd` into the `cli_rpn_calculator` repository 
+   `cd` into the `cli_rpn_calculator` repository.  
+   
    Based on your version of Python, you can run run the program using the following command:
 
    ```bash
-python3 rpn_calculator.py
+   python3 rpn_calculator.py
 
 3. **Run Tests**:
 
    If you'd like to run tests locally, you can run them using the following command:
 
    ```bash
-python3 test_rpn_calculator.py
+   python3 test_rpn_calculator.py
