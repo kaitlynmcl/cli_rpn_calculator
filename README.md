@@ -97,8 +97,8 @@ By addressing these potential improvements, we could further enhance the functio
 2. **Run the Program**:
 
    `cd` into the `cli_rpn_calculator` repository.  
-   
-   Based on your version of Python, you can run run the program using the following command:
+
+   Based on your version of Python, you can run the program using the following command:
 
    ```bash
    python3 rpn_calculator.py
