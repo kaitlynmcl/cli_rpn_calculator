@@ -7,7 +7,7 @@ class TestRPNCalculator(unittest.TestCase):
         """
         Create an instance of the calculator before each test.
         """
-        self.calculator = RPNCalculator()xw
+        self.calculator = RPNCalculator()
 
     def test_addition(self):
         """
