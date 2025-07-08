@@ -57,11 +57,6 @@ The tool is designed for simplicity and functionality, providing a user-friendly
 
 ### Future Enhancements
 
-- **Alternate Interfaces**: We could implement additional interfaces such as WebSocket, file-based input/output, or TCP socket communication. These interfaces would allow for integration with other systems or tools, providing more flexibility in how users interact with the calculator.
-  - **WebSocket**: Implementing a WebSocket interface would allow the calculator to interact with web-based clients in real time, enabling remote access to the calculator from browsers or other web applications.
-  - **File-Based Input/Output**: A file-based interface could allow users to provide input through files (e.g., `.txt` or `.csv`) and retrieve output in a file format. This would make it easier to automate calculations and integrate the calculator into workflows where input and output are stored in files.
-  - **TCP Socket Communication**: Supporting TCP socket communication would allow the calculator to be used in networked environments where commands are sent over a network. This could be useful for integrating the calculator into server-side applications, IoT devices, or other distributed systems.
-
 - **Extended Command Set**: Future versions of the calculator could include a wider range of commands to further extend its capabilities.
   - **Additional Operators**: In addition to the four basic arithmetic operations, the calculator could include advanced operators such as exponentiation (`^`), modulus (`%`), and trigonometric functions (`sin`, `cos`, `tan`, etc.).
   - **User-Defined Operations**: The ability to define custom operations on the fly would provide a great deal of flexibility for users. For example, a user might want to define a custom operation like `sqrt` for square root calculation or a `pow` operation for exponentiation.
